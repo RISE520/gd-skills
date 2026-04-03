@@ -969,8 +969,7 @@
 
         let currentLang = 'en';
 
-        function toggleLanguage() {
-            currentLang = currentLang === 'en' ? 'zh' : 'en';
+        function applyTranslations() {
             document.documentElement.lang = currentLang;
 
             const langEn = document.getElementById('langEn');
@@ -998,6 +997,14 @@
                 }
             });
         }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'zh' : 'en';
+            applyTranslations();
+        }
+
+        // Apply default language on page load
+        applyTranslations();
         const loader = document.getElementById('loader');
         const loaderCanvas = document.getElementById('loaderCanvas');
         const lCtx = loaderCanvas.getContext('2d');
